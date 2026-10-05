@@ -106,5 +106,7 @@ The outline and the draft are generated in two separate steps. Early testing sho
 
 ## Author
 
-Amey Nagotkar, TYCM2, Roll No. 44
-Guide: Ms. Priyanka Kharatmol
+Amey Nagotkar
+
+##Application-Deployed Link:
+https://blog-generator-zta0.onrender.com
