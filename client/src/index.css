@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  --bg-page: #FBF8F3;
+  --surface-card: #FFFFFF;
+  --border-soft: #E8E3DA;
+  --primary-teal: #0E5C55;
+  --primary-teal-hover: #0A4A44;
+  --heading-ink: #0B3B38;
+  --accent-terracotta: #C2652B;
+  --accent-terracotta-hover: #A85220;
+  --body-text: #3F4B49;
+  --muted-text: #7A8583;
+  --teal-tint: #E6F1EF;
+  --terracotta-tint: #F8E9DF;
+  --status-amber: #B7791F;
+  --status-red: #B3261E;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--bg-page);
+  color: var(--body-text);
+  overflow-x: hidden;
+}
+
+/* Custom Markdown Rendering in Editorial Health-Tech Serif Style */
+.markdown-preview {
+  color: var(--body-text);
+  line-height: 1.75;
+  max-width: 72ch;
+}
+
+.markdown-preview h1 {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 1.85rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--heading-ink);
+  border-bottom: 1px solid var(--border-soft);
+  padding-bottom: 0.5rem;
+  letter-spacing: -0.015em;
+}
+
+.markdown-preview h2 {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 1.45rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--heading-ink);
+  border-bottom: 1px solid var(--border-soft);
+  padding-bottom: 0.35rem;
+  letter-spacing: -0.01em;
+}
+
+.markdown-preview h3 {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary-teal);
+}
+
+.markdown-preview p {
+  margin-top: 0.85rem;
+  margin-bottom: 0.85rem;
+  color: var(--body-text);
+  font-size: 0.9375rem;
+}
+
+.markdown-preview ul, .markdown-preview ol {
+  margin-top: 0.5rem;
+  margin-bottom: 0.85rem;
+  padding-left: 1.5rem;
+}
+
+.markdown-preview ul {
+  list-style-type: disc;
+}
+
+.markdown-preview ol {
+  list-style-type: decimal;
+}
+
+.markdown-preview li {
+  margin-top: 0.35rem;
+  margin-bottom: 0.35rem;
+  color: var(--body-text);
+  font-size: 0.9375rem;
+}
+
+.markdown-preview blockquote {
+  border-left: 3px solid var(--primary-teal);
+  padding: 0.75rem 1.25rem;
+  margin: 1.25rem 0;
+  color: var(--body-text);
+  font-style: italic;
+  background-color: var(--teal-tint);
+  border-radius: 0.5rem;
+}
+
+.markdown-preview code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  background-color: #F4EFEB;
+  color: var(--heading-ink);
+  padding: 0.15rem 0.35rem;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+  border: 1px solid var(--border-soft);
+}
+
+.markdown-preview pre {
+  background-color: #F5EFE6;
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  overflow-x: auto;
+  border: 1px solid var(--border-soft);
+  margin: 1.25rem 0;
+}
+
+.markdown-preview pre code {
+  background-color: transparent;
+  color: var(--heading-ink);
+  padding: 0;
+  border: none;
+}
+
+.markdown-preview strong {
+  color: var(--heading-ink);
+  font-weight: 600;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FBF8F3;
+}
+::-webkit-scrollbar-thumb {
+  background: #E8E3DA;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C2652B;
+}
