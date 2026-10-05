@@ -3,7 +3,9 @@ node_modules/
 
 # Build and cache outputs
 dist/
+client/dist/
 .vite/
+client/.vite/
 
 # Environment files
 .env

@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import path from 'path';
+import fs from 'fs';
 import { fileURLToPath } from 'url';
 
 import keywordsRouter from './routes/keywords.js';
@@ -18,6 +19,10 @@ dotenv.config({ path: path.resolve(__dirname, '../../.env') });
 dotenv.config();
 
 const app = express();
+
+// Trust proxy for Render / reverse proxy deployments
+app.set('trust proxy', 1);
+
 const PORT = process.env.PORT || 3001;
 
 app.use(cors());
@@ -57,7 +62,7 @@ app.use('/api', outlineRouter);
 app.use('/api', draftRouter);
 app.use('/api', scoreRouter);
 
-// 404 handler for unknown API routes
+// 404 handler for unknown API routes (must return JSON, never HTML)
 app.use('/api/*', (req, res) => {
   res.status(404).json({
     error: {
@@ -67,11 +72,23 @@ app.use('/api/*', (req, res) => {
   });
 });
 
+// Serve the built React client if the dist directory exists (single production deployment on Render)
+const clientDistPath = path.resolve(__dirname, '../../client/dist');
+const clientDistExists = fs.existsSync(clientDistPath);
+
+if (clientDistExists) {
+  app.use(express.static(clientDistPath));
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(clientDistPath, 'index.html'));
+  });
+}
+
 // Centralized JSON Error Handler
 app.use(errorHandler);
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server is running on port ${PORT}`);
+  console.log(`Client build found: ${clientDistExists} at ${clientDistPath}`);
   console.log(`LLM Model: ${process.env.GEMINI_MODEL || 'Not set'}`);
   console.log(`Default Mock Mode: ${process.env.MOCK_MODE === 'true' || !process.env.GEMINI_API_KEY}`);
 });
