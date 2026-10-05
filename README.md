@@ -104,9 +104,23 @@ Blog-Generator/
 
 The outline and the draft are generated in two separate steps. Early testing showed that single-pass generation produced inconsistent heading hierarchies and topic drift in longer drafts. A fixed, user-approved outline acts as the contract for every drafting call.
 
+## Live demo
+
+https://blog-generator-zta0.onrender.com
+
+Hosted on Render's free tier, so the first load after a period of inactivity can take about a minute while the server wakes up. The app opens in Mock mode by default; switch to **Live Gemini** with the header toggle to use the real API.
+
+## Deployment (Render)
+
+The app deploys as a single web service: Express serves both the API and the built React client.
+
+- **Build command:** `npm install && npm run build`
+- **Start command:** `npm start`
+- **Environment variables:** `GEMINI_API_KEY`, `GEMINI_MODEL`, `MOCK_MODE`, `NODE_ENV=production`, `NODE_VERSION=20`
+
+Set the API key only in Render's environment settings. Never commit it.
+
 ## Author
 
 Amey Nagotkar
 
-## Application-Deployed Link:
-https://blog-generator-zta0.onrender.com
