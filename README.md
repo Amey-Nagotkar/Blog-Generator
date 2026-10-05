@@ -108,5 +108,5 @@ The outline and the draft are generated in two separate steps. Early testing sho
 
 Amey Nagotkar
 
-##Application-Deployed Link:
+## Application-Deployed Link:
 https://blog-generator-zta0.onrender.com
